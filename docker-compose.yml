@@ -1,0 +1,16 @@
+version: '3.4'
+
+services: 
+
+    php-7.4:
+      image: php-7.4
+      container_name: myphp-7.4
+      build: .
+      volumes:
+          - ./src:/var/www/html
+          - ./php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    #   ports: 
+    #       - 9001:9001 # for xdebug in vs
+
+      command: tail -f /dev/null # keep open container
+    #   command: "php /var/www/html/index.php"
