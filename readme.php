@@ -1,4 +1,4 @@
-It is a template of PHP + Apache running in a docker container 
+It is a template of PHP-7.4 + Apache running in a docker container 
 
 # How to run it 
 
