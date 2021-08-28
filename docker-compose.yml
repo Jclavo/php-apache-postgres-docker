@@ -9,8 +9,7 @@ services:
       volumes:
           - ./src:/var/www/html
           - ./php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-    #   ports: 
-    #       - 9001:9001 # for xdebug in vs
+      ports: 
+          - 808:80 # apache
 
-      command: tail -f /dev/null # keep open container
-    #   command: "php /var/www/html/index.php"
+      command: bash -c "/etc/init.d/apache2 start && tail -f /dev/null" # start apache && open conatiner
