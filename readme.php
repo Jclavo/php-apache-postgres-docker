@@ -1,3 +1,5 @@
+It is a template of PHP + Apache running in a docker container 
+
 # How to run it 
 
 - clone the repository
@@ -5,7 +7,6 @@
 - docker-compose up -d
 - docker exec -it myphp-7.4 /bin/bash
 - php [path-file.php] (php samples/hello/hello.php)  
-
 
 
 # Acess Apache by browser (port:808, it can be modified)
