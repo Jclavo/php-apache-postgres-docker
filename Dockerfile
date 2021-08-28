@@ -1,10 +1,7 @@
-FROM php:7.4-fpm-alpine
-
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+FROM php:7.4-apache
 
 # XDEBUG
-RUN apk add --no-cache $PHPIZE_DEPS \
-    && pecl install xdebug-2.9.2 \
+RUN pecl install xdebug-2.9.2 \
     && docker-php-ext-enable xdebug
 
 # set working directory
@@ -13,9 +10,15 @@ WORKDIR /var/www/html
 # copy code
 COPY ./src /var/www/html
 
-# add group and user
-RUN addgroup -g 1000 php-group
-RUN adduser -u 1000 -G php-group -h /home/php-user -D php-user
+# port
+EXPOSE 80
+
+# start apache in background
+# CMD ["apachectl","-D", "FOREGROUND"]] 
+
+RUN useradd -m php-user
+RUN groupadd php-group
+RUN usermod -a -G php-group php-user
 RUN chown -R php-user:php-group /var/www/html
 RUN chown -R php-user:php-group /var/log
 USER php-user
