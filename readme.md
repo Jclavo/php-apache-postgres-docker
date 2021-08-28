@@ -10,10 +10,10 @@ It is a template of PHP-7.4 + Apache running in a docker container
 
 
 # Acess Apache by browser 
-(port:808, it can be modified)
+(used port:808. it can be modified)
 
 - http://localhost:808/ (default index)
 
 - http://localhost:808/[path-to-file.php] (specific file)
-- http://localhost:808/samples/hello/hello.php
+  http://localhost:808/samples/hello/hello.php
 
